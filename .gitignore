@@ -1,0 +1,7 @@
+.env
+.DS_Store
+modules.xml
+aws.xml
+orion.iml
+vcs.xml
+.idea/
