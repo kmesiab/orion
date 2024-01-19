@@ -1,5 +1,16 @@
 # Orion 🌌
 
+# AI-Code-Critic 🚀
+
+![Golang](https://img.shields.io/badge/Go-00add8.svg?labelColor=171e21&style=for-the-badge&logo=go)
+
+![Build](https://github.com/kmesiab/orion/actions/workflows/go-build.yml/badge.svg)
+![Build](https://github.com/kmesiab/orion/actions/workflows/go-lint.yml/badge.svg)
+![Build](https://github.com/kmesiab/orion/actions/workflows/go-test.yml/badge.svg)
+[![Go Report Card](https://goreportcard.com/badge/github.com/kmesiab/orion)](https://goreportcard.com/report/github.com/kmesiab/orion)
+
+---
+
 Welcome to Orion 🚀, where elegant design meets powerful AI for transformative
 code reviews. Orion leverages advanced Large Language Models (LLMs) to deliver
 insightful, detailed code analyses and suggestions 🧠. Our goal is to enhance the
