@@ -1,26 +1,26 @@
 import {useState} from 'react';
-import logo from './assets/images/logo-universal.png';
-import './App.css';
-import {Greet} from "../wailsjs/go/main/App.js";
+import './App.scss';
+import {ProcessPullRequest} from "../wailsjs/go/main/App.js";
+import DiffViewer from "./components/DiffViewer/DiffViewer.jsx";
 
 function App() {
-    const [resultText, setResultText] = useState("Please enter your name below 👇");
-    const [name, setName] = useState('');
+    const [resultText, setResultText] = useState('');
+    const [url, setName] = useState('');
+
     const updateName = (e) => setName(e.target.value);
     const updateResultText = (result) => setResultText(result);
 
-    function greet() {
-        Greet(name).then(updateResultText);
+    function processPullRequest() {
+        ProcessPullRequest(url).then(updateResultText);
     }
 
     return (
         <div id="App">
-            <img src={logo} id="logo" alt="logo"/>
-            <div id="result" className="result">{resultText}</div>
             <div id="input" className="input-box">
-                <input id="name" className="input" onChange={updateName} autoComplete="off" name="input" type="text"/>
-                <button className="btn" onClick={greet}>Greet</button>
+                <input id="name" className="input" onChange={updateName} name="input" type="text" placeholder={"https://github.com/owner/repo/pull/1234"}/>
+                <button className="btn" onClick={processPullRequest}>Review</button>
             </div>
+            <DiffViewer text={resultText} />
         </div>
     )
 }

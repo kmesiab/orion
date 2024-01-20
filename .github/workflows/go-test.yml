@@ -32,7 +32,7 @@ jobs:
         run: go install github.com/wailsapp/wails/v2/cmd/wails@latest
 
       - name: ⛵Build Wails
-        run: pwd && ls && wails build
+        run: npm install && ls && wails build
         working-directory: .
 
       - name: 📦Npm Install
