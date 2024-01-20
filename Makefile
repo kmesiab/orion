@@ -4,8 +4,12 @@
 # Meta Targets
 all: install-tools build test lint
 
+# Runt the wails app
+run:
+	@wails dev
+
 # Build Targets
-build: go-mod-tidy go-build
+build: lint go-build wails-build
 
 # Build and run the application
 build-and-run:
@@ -20,6 +24,10 @@ go-build:
 	@echo "🔨 Building Go binaries"
 	@go build -ldflags="-s -w" ./...
 
+wails-build:
+	@echo "🔨 Building Wails binaries"
+	@cd frontend && npm install
+	@wails build
 # Test Targets
 test: test-basic
 

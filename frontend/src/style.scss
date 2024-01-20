@@ -1,0 +1,211 @@
+html {
+    background-color: rgba(27, 38, 54, 1);
+}
+
+body {
+    margin: 0;
+    font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+
+    padding: 12px;
+}
+
+@font-face {
+    font-family: "Nunito";
+    font-style: normal;
+    font-weight: 400;
+    src: local(""),
+    url("assets/fonts/nunito-v16-latin-regular.woff2") format("woff2");
+}
+
+#app {
+    height: 100vh;
+}
+
+.diff-viewer {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    overflow: auto;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: left;
+}
+
+.file-diff {
+    margin-bottom: 20px;
+}
+
+.file-diff h3 {
+    margin: 0 0 10px 0;
+    padding: 5px;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+}
+
+.diff {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.hunk {
+    white-space: pre;
+}
+
+.gutter {
+    text-align: right;
+    color: #999;
+}
+
+.line {
+    white-space: pre;
+
+    &.insert {
+        background-color: #e6ffed;
+        color: #004d40; // Dark green color for text on insert lines
+    }
+
+    &.delete {
+        background-color: #ffeef0;
+        color: #c62828; // Dark red color for text on delete lines
+    }
+}
+
+.line-number {
+    color: #999;
+    padding-right: 10px;
+}
+
+.code {
+    text-align: left;
+    color: #333 !important; // Ensures text is visible on white background
+}
+
+.diff-viewer .diff-added {
+    background-color: #e6ffed; /* Light green background */
+}
+
+/* Specific styles for the entire diff section for deleted lines */
+.diff-viewer .diff-removed {
+    background-color: #ffeef0; /* Light red background */
+}
+
+/* Specific styles for individual added lines */
+.diff-viewer .diff-code-insert {
+    background-color: #d4edda; /* Slightly darker green for added lines */
+    color: #155724; /* Dark green text color for added lines */
+}
+
+/* Specific styles for individual deleted lines */
+.diff-viewer .diff-code-delete {
+    background-color: #f8d7da; /* Slightly darker red for deleted lines */
+    color: #721c24; /* Dark red text color for deleted lines */
+}
+
+.input-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px; /* Distance between the input box and the diff viewer */
+}
+
+.input {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 2px solid #ddd; /* Light grey border */
+    border-radius: 4px 0 0 4px; /* Rounded corners on the left side */
+    outline: none; /* Removes the default focus outline */
+    margin-right: -1px; /* Ensures the button and input touch */
+}
+
+.btn {
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #3498db; /* A nice blue shade */
+    border: 2px solid #3498db; /* Same as background color */
+    color: white;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0; /* Rounded corners on the right side */
+    outline: none; /* Removes the default focus outline */
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.btn:hover,
+.btn:focus {
+    background-color: #2980b9; /* A darker blue on hover/focus */
+    border-color: #2980b9;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .input-box {
+        flex-direction: column;
+    }
+
+    .input,
+    .btn {
+        width: 100%; /* Full width on smaller screens */
+        border-radius: 4px; /* Rounded corners on all sides */
+    }
+
+    .input {
+        margin-bottom: 10px; /* Distance between the input and the button */
+        margin-right: 0; /* Reset the margin since they are now stacked */
+    }
+}
+
+.input-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px; /* Distance between the input box and the diff viewer */
+}
+
+.input {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 2px solid #ddd; /* Light grey border */
+    border-radius: 4px 0 0 4px; /* Rounded corners on the left side */
+    outline: none; /* Removes the default focus outline */
+    margin-right: -1px; /* Ensures the button and input touch */
+}
+
+.btn {
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #3498db; /* A nice blue shade */
+    border: 2px solid #3498db; /* Same as background color */
+    color: white;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0; /* Rounded corners on the right side */
+    outline: none; /* Removes the default focus outline */
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.btn:hover,
+.btn:focus {
+    background-color: #2980b9; /* A darker blue on hover/focus */
+    border-color: #2980b9;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .input-box {
+        flex-direction: column;
+    }
+
+    .input,
+    .btn {
+        width: 100%; /* Full width on smaller screens */
+        border-radius: 4px; /* Rounded corners on all sides */
+    }
+
+    .input {
+        margin-bottom: 10px; /* Distance between the input and the button */
+        margin-right: 0; /* Reset the margin since they are now stacked */
+    }
+}
