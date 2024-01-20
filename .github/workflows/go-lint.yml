@@ -39,14 +39,53 @@ jobs:
       - name: 🛒 Checkout Code
         uses: actions/checkout@v3
 
+      - name: 📦 Cache Node Modules
+        uses: actions/cache@v3
+        with:
+          path: frontend/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('frontend/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: 📦 Install Node.js and npm
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.0.0'
+
+      - name: 🪟 Build React
+        run: |
+          cd frontend
+          npm install
+          npm run build
+
+      - name: 📦 Cache Go Modules
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/go/pkg/mod
+            ~/.cache/go-build
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-
+
       - name: 🚀 Set up Go
         uses: actions/setup-go@v4.1.0
         with:
           go-version: '1.21.4'
-          cache: true
-          check-latest: true
+
+      - name: ⛵ Install Wails v2
+        run: go install github.com/wailsapp/wails/v2/cmd/wails@latest
+
+      - name: ⚙️ Install GTK and WebKit dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgtk-3-dev libwebkit2gtk-4.0-dev
+
+      - name: ⛵ Build Wails
+        run: wails build
 
       - name: 🕵️‍♂️ Run GolangCI-Lint
         uses: golangci/golangci-lint-action@v3
         with:
           version: v1.54
+
