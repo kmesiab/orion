@@ -78,4 +78,5 @@ lint-go:
 lint-markdown:
 	@echo "📚 Running Markdown linters with npm"
 	@if [ -z $$(which markdownlint) ]; then npm install -g markdownlint-cli; fi
-	@markdownlint $$(find ./. -name '*.md')
+	@markdownlint $$(find ./. -name '*.md' | grep -v 'node_modules')
+

@@ -82,4 +82,5 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Kevin Mesiab - [LinkedIn](https://linkedin.com/in/kmesiab) | twitter: @kmesiab
 
-Frankie Murillo - [LinkedIn](https://www.linkedin.com/in/frankie-murillo) | twiter(x): @spacescript\_
+Frankie Murillo - [LinkedIn](https://www.linkedin.com/in/frankie-murillo) |
+twiter(x): @spacescript\_

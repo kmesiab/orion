@@ -5,3 +5,7 @@ aws.xml
 orion.iml
 vcs.xml
 .idea/
+build/bin
+node_modules
+frontend/dist
+
