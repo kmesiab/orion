@@ -5,7 +5,7 @@ import (
 	"testing"
 
 	gh "github.com/kmesiab/go-github-diff"
-	"github.com/stretchr/testify/assert" // You might need to add testify to your project
+	"github.com/stretchr/testify/assert"
 )
 
 // TestParsePullRequestURL tests the ParsePullRequestURL method.  This is only
