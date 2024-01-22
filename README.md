@@ -14,6 +14,8 @@ code reviews. Orion leverages advanced Large Language Models (LLMs) to deliver
 insightful, detailed code analyses and suggestions 🧠. Our goal is to enhance the
 code review process with a blend of aesthetics and intelligence 💡.
 
+<img width="1409" alt="Screenshot 2024-01-21 at 4 08 23 PM" src="https://github.com/kmesiab/orion/assets/161768/6501c7a5-d49d-41ed-9489-36fa53e0ee3f">
+
 ## Features 🌟
 
 - **Elegant User Interface** 💻: A clean, intuitive UI that simplifies code
