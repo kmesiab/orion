@@ -3,10 +3,6 @@ import "./App.scss";
 import { ProcessPullRequest } from "../wailsjs/go/main/App.js";
 import { GetCodeReviewFromAPI } from "../wailsjs/go/main/App.js";
 import DiffViewer from "./components/DiffViewer/DiffViewer.jsx";
-import AnalysisViewer from "./components/AnalysisViewer/AnalysisViewer.jsx";
-import Stack from "@mui/material/Stack";
-import ListItem from "@mui/material/ListItem";
-import Divider from "@mui/material/Divider";
 
 function App() {
   const [pullRequestText, setPullRequestText] = useState("");
@@ -19,9 +15,9 @@ function App() {
     setPullRequestText(result);
     //Once we have pull request text we can call the API to get the code review text
     setIsLoading(true);
-    GetCodeReviewFromAPI(result).then(proccessCodeReview);
+    GetCodeReviewFromAPI(result).then(processCodeReview);
   };
-  const proccessCodeReview = (result) => {
+  const processCodeReview = (result) => {
     setCodeReviewText(result);
     setIsLoading(false);
   };
@@ -45,15 +41,11 @@ function App() {
           Review
         </button>
       </div>
-      <Stack spacing={2}>
-        <ListItem>
-          <AnalysisViewer loading={isLoading} analysisReport={codeReviewText} />
-        </ListItem>
-        {codeReviewText && <Divider />}
-        <ListItem>
-          <DiffViewer text={pullRequestText} />
-        </ListItem>
-      </Stack>
+      <DiffViewer
+        text={pullRequestText}
+        analysisReport={codeReviewText}
+        loading={isLoading}
+      />
     </div>
   );
 }
