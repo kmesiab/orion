@@ -65,29 +65,29 @@ func (a *App) ProcessPullRequest(url string) string {
 // GetCodeReviewFromAPI takes a string containing the combined diffs of a pull request
 // and returns a string containing the code review. This function is designed to be
 // bound to a TypeScript function, enabling the frontend to interact with the
-// GitHub API through this Go method.
+// openAI API through this Go method.
 func (a *App) GetCodeReviewFromAPI(diffs string) string {
 	//This function is not implemented yet.
 	//It currently starts a timer (sleeps for 2 seconds) and returns a string.
-	//Start a timer for 5 seconds
-	time.Sleep(2 * time.Second)
+	//Start a timer for 3 seconds
+	time.Sleep(3 * time.Second)
 	return `
 	I've reviewed your recent pull request, and overall, the changes look great! I appreciate your efforts. However, I have a few suggestions for improvement:
 
-1. **Variable Naming:**
-   - Consider using more descriptive variable names to enhance code readability.
+	1. **Variable Naming:**
+	   - Consider using more descriptive variable names to enhance code readability.
 
-2. **Comments:**
-   - Add comments to explain complex logic or any non-trivial parts of the code.
+	2. **Comments:**
+	   	- Add comments to explain complex logic or any non-trivial parts of the code.
 
-3. **Error Handling:**
-   - Ensure proper error handling for critical sections of the code.
+	3. **Error Handling:**
+ 	  - Ensure proper error handling for critical sections of the code.
 
-4. **Code Duplication:**
-   - Watch out for code duplication. It's always good to refactor common logic into reusable functions.
+	4. **Code Duplication:**
+ 	  - Watch out for code duplication. It's always good to refactor common logic into reusable functions.
 
-5. **Testing:**
-   - Don't forget to include test cases for the new functionality.
+	5. **Testing:**
+ 	  - Don't forget to include test cases for the new functionality.
 
-Please address these points, and once done, feel free to merge the changes. Great job overall!`
+	Please address these points, and once done, feel free to merge the changes. Great job overall!`
 }
