@@ -39,10 +39,10 @@ func (a *App) Startup(ctx context.Context) {
 // from GitHub and combines the diffs of each file in the pull request into a single
 // string, which is then returned.
 //
-// If there's an error in fetching the pull request, an error message is returned.
+// If there's an error in fetching the pull request, an error is returned.
 // This function is particularly useful in applications that need to process or display
 // the changes in a pull request, such as in code review tools or development dashboards.
-func (a *App) ProcessPullRequest(url string) string {
+func (a *App) ProcessPullRequest(url string) (string, error) {
 	// Parse the pull request URL to validate it
 
 	var (
@@ -51,15 +51,15 @@ func (a *App) ProcessPullRequest(url string) string {
 	)
 
 	if _, err = a.GithubService.ParsePullRequestURL(url); err != nil {
-		return fmt.Errorf("invalid GitHub pull request url. error: %s", err).Error()
+		return "", fmt.Errorf("invalid GitHub pull request url. error: %s", err)
 	}
 
 	// Fetch the pull request details using the GitHub service
 	if diffs, err = a.GithubService.GetPullRequest(a.ctx, url); err != nil {
-		return fmt.Errorf("error getting pull request. error: %s", err).Error()
+		return "", fmt.Errorf("error getting pull request. error: %s", err)
 	}
 
-	return diffs
+	return diffs, nil
 }
 
 // GetCodeReviewFromAPI takes a string containing the combined diffs of a pull request
