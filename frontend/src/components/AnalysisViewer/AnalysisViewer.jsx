@@ -16,6 +16,9 @@ const AnalysisViewer = ({ loading, analysisReport }) => {
     flexDirection: "column",
     alignItems: "center",
     width: "100%",
+    "& pre": {
+      display: "inline",
+    },
   };
 
   return (
