@@ -23,7 +23,11 @@ function App() {
   };
 
   function processPullRequest() {
-    ProcessPullRequest(url).then(processPullRequestText);
+    ProcessPullRequest(url)
+      .then(processPullRequestText)
+      .catch((error) => {
+        setPullRequestText(error);
+      });
   }
 
   return (
