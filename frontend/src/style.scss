@@ -1,5 +1,7 @@
-$font-stack: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-$font-stack-mono: 'Courier New', Courier, monospace;
+$font-stack: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+  "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif;
+$font-stack-mono: "Courier New", Courier, monospace;
 $border-radius: 4px;
 $border-color: #ddd !important;
 $background-color-light: #f8f8f8;
@@ -8,190 +10,192 @@ $color-text: #333;
 $color-text-muted: #999;
 
 html {
-    background-color: $background-color-dark;
+  background-color: $background-color-dark;
 }
 
 body {
-    margin: 0;
-    padding: 12px;
-    font-family: $font-stack;
-    background: white;
-    font-size: .80em;
+  margin: 0;
+  padding: 12px;
+  font-family: $font-stack;
+  background: white;
+  font-size: 0.8em;
 }
 
 @font-face {
-    font-family: "Nunito";
-    font-style: normal;
-    font-weight: 100;
-    src: local(""), url("assets/fonts/nunito-v16-latin-regular.woff2") format("woff2");
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 100;
+  src: local(""),
+    url("assets/fonts/nunito-v16-latin-regular.woff2") format("woff2");
 }
 
 #App {
 }
 
-
 .diff-viewer {
+  .file-diff {
+    margin-bottom: 20px;
 
-
-    .file-diff {
-        margin-bottom: 20px;
-
-        .hunk, .line {
-            white-space: pre;
-        }
-
-        .gutter {
-            text-align: right;
-            color: $color-text-muted;
-        }
-
-        .line {
-            &.insert {
-                background-color: #e6ffed;
-                color: #004d40;
-            }
-
-            &.delete {
-                background-color: #ffeef0;
-                color: #c62828;
-            }
-        }
-
-        .line-number {
-            color: $color-text-muted;
-            padding-right: 10px;
-        }
-
-        .code {
-            text-align: left;
-            color: $color-text !important;
-        }
-
-        &.diff-added {
-            background-color: #e6ffed;
-        }
-
-        &.diff-removed {
-            background-color: #ffeef0;
-        }
-
-        &.diff-code-insert {
-            background-color: #d4edda;
-            color: #155724;
-        }
-
-        &.diff-code-delete {
-            background-color: #f8d7da;
-            color: #721c24;
-        }
+    .hunk,
+    .line {
+      white-space: pre;
     }
+
+    .gutter {
+      text-align: right;
+      color: $color-text-muted;
+    }
+
+    .line {
+      &.insert {
+        background-color: #e6ffed;
+        color: #004d40;
+      }
+
+      &.delete {
+        background-color: #ffeef0;
+        color: #c62828;
+      }
+    }
+
+    .line-number {
+      color: $color-text-muted;
+      padding-right: 10px;
+    }
+
+    .code {
+      text-align: left;
+      color: $color-text !important;
+    }
+
+    &.diff-added {
+      background-color: #e6ffed;
+    }
+
+    &.diff-removed {
+      background-color: #ffeef0;
+    }
+
+    &.diff-code-insert {
+      background-color: #d4edda;
+      color: #155724;
+    }
+
+    &.diff-code-delete {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+  }
 }
 
 .input-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+
+  .input {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 2px solid $border-color;
+    border-radius: $border-radius 0 0 $border-radius;
+    outline: none;
+    margin-right: -1px;
+  }
+
+  .btn {
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #3498db;
+    border: 2px solid #3498db;
+    color: white;
+    cursor: pointer;
+    border-radius: 0 $border-radius $border-radius 0;
+    outline: none;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+
+    &:hover,
+    &:focus {
+      background-color: #2980b9;
+      border-color: #2980b9;
+    }
+  }
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+
+    .input,
+    .btn {
+      width: 100%;
+      border-radius: $border-radius;
+    }
 
     .input {
-        padding: 10px 15px;
-        font-size: 16px;
-        border: 2px solid $border-color;
-        border-radius: $border-radius 0 0 $border-radius;
-        outline: none;
-        margin-right: -1px;
+      margin-bottom: 10px;
+      margin-right: 0;
     }
-
-    .btn {
-        padding: 10px 15px;
-        font-size: 16px;
-        background-color: #3498db;
-        border: 2px solid #3498db;
-        color: white;
-        cursor: pointer;
-        border-radius: 0 $border-radius $border-radius 0;
-        outline: none;
-        transition: background-color 0.2s, border-color 0.2s, color 0.2s;
-
-        &:hover, &:focus {
-            background-color: #2980b9;
-            border-color: #2980b9;
-        }
-    }
-
-    @media (max-width: 600px) {
-        flex-direction: column;
-
-        .input, .btn {
-            width: 100%;
-            border-radius: $border-radius;
-        }
-
-        .input {
-            margin-bottom: 10px;
-            margin-right: 0;
-        }
-    }
+  }
 }
 
 button.MuiButtonBase-root {
-    font-size: .9em;
-    border-bottom: solid 1px $border-color;
+  font-size: 0.9em;
+  border-bottom: solid 1px $border-color;
 }
 .MuiBox-root {
-    background-color: $background-color-light
+  background-color: $background-color-light;
 }
 
 button.MuiButton {
-
 }
 
 button.Mui-selected {
-    background-color: white;
+  background-color: white;
 }
 
 .MuiTabPanel-root,
 .css-13xfq8m-MuiTabPanel-root,
 .css-13xfq8m-MuiTabPanel-root {
-    margin-top: 0 !important;
-    padding: 0 !important;
+  margin-top: 0 !important;
+  padding: 0 !important;
+
+  font-family: $font-stack-mono;
+  overflow: auto;
+  background-color: $background-color-light;
+  border: 1px solid $border-color !important;
+  border-radius: $border-radius;
+  text-align: left;
+  display: flex;
+
+  h3 {
+    margin: 0 0 10px;
+    padding: 8px;
+    font-size: 1.5em !important;
+    background-color: $background-color-light;
+    border: 1px solid $border-color !important;
+    border-radius: $border-radius !important;
+  }
+
+  .file-diff {
+    margin-bottom: 20px;
+    color: #444;
 
     font-family: $font-stack-mono;
     overflow: auto;
+    padding: 10px;
     background-color: $background-color-light;
     border: 1px solid $border-color !important;
     border-radius: $border-radius;
     text-align: left;
-    display: flex;
 
-    h3 {
-        margin: 0 0 10px;
-        padding: 8px;
-        font-size: 1.5em !important;
-        background-color: $background-color-light;
-        border: 1px solid $border-color !important;
-        border-radius: $border-radius !important;
+    .diff {
+      background-color: white;
+      border: 1px solid $border-color;
+      border-radius: $border-radius;
+      width: 100%;
     }
-
-    .file-diff {
-        margin-bottom: 20px;
-        color: #444;
-
-        font-family: $font-stack-mono;
-        overflow: auto;
-        padding: 10px;
-        background-color: $background-color-light;
-        border: 1px solid $border-color !important;
-        border-radius: $border-radius;
-        text-align: left;
-
-        .diff {
-            background-color: white;
-            border: 1px solid $border-color;
-            border-radius: $border-radius;
-            width: 100%;
-
-        }
-    }
+  }
 }
 
+code {
+  white-space: pre-wrap !important;
+}
