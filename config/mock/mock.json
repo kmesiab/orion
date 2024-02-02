@@ -1,0 +1,5 @@
+{
+  "OPENAI_API_KEY": "some-api-key",
+  "CONTEXT_TIMEOUT": "10s",
+  "IGNORE_FILES": "go.mod,go.sum,.env"
+}

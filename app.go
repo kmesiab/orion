@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/kmesiab/orion/config"
 	"github.com/kmesiab/orion/github"
 )
 
@@ -14,6 +15,7 @@ import (
 type App struct {
 	ctx           context.Context        // Application context for managing lifecycle and cancellation.
 	GithubService github.ClientInterface // Interface to the GitHub client for API interactions.
+	Config        *config.Config         // Configuration instance to hold configuration values.
 }
 
 // Startup is called when the app starts.
@@ -67,9 +69,9 @@ func (a *App) ProcessPullRequest(url string) (string, error) {
 // bound to a TypeScript function, enabling the frontend to interact with the
 // openAI API through this Go method.
 func (a *App) GetCodeReviewFromAPI(diffs string) string {
-	//This function is not implemented yet.
-	//It currently starts a timer (sleeps for 2 seconds) and returns a string.
-	//Start a timer for 3 seconds
+	// This function is not implemented yet.
+	// It currently starts a timer (sleeps for 2 seconds) and returns a string.
+	// Start a timer for 3 seconds
 	time.Sleep(3 * time.Second)
 	return `
 	I've reviewed your recent pull request, and overall, the changes look great! I appreciate your efforts. However, I have a few suggestions for improvement:
