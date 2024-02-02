@@ -71,6 +71,51 @@ code review process with a blend of aesthetics and intelligence 💡.
 
 - Instructions on how to use Orion and its features.
 
+### App Configuration 🔨
+
+To configure the app, you can use an `env.json`
+file placed in the root project directory.
+This file should contain various configuration parameters
+necessary for the proper functioning of the application.
+
+#### Usage
+
+Create an env.json file in the root project directory.
+
+Populate the file with the required configuration
+parameters following the examples provided.
+
+Save the file.
+
+The application will read the configuration from env.json during runtime.
+
+- Example configuration
+
+```json
+{
+  "OPENAI_API_KEY": "some_secret_key",
+  "CONTEXT_TIMEOUT": "10s",
+  "IGNORE_FILES": "go.mod,go.sum,config.json"
+}
+```
+
+#### Configuration Parameters
+
+1. **OPENAI_API_KEY**
+   - Set your OpenAI API key in the OpenAIAPIKey field.
+     This key is required for the app to interact with the OpenAI API.
+2. **CONTEXT_TIMEOUT**
+   - Adjust this field to set the timeout
+     for context-related operations. The value should be provided in seconds.
+3. **IGNORE_FILES**
+   - Specify files to be ignored during code review.
+     Use a comma-separated list for multiple files.
+
+#### Important Note
+
+Keep your env.json file secure and do not expose sensitive information,
+especially the OpenAI API key.
+
 ## Contributing 🤝
 
 Contributions are welcome! Please read our contributing guidelines to get
